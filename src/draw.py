@@ -58,7 +58,7 @@ class Rectangle:
             if x == self.location[0]+self.width:
                 break
 
-            self.screen.pre_write(letter)
+            self.screen.write(letter, flush=False)
             x += 1
 
         self.screen.flush()
