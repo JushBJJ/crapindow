@@ -7,6 +7,31 @@ import colorama
 import cursor
 
 
+foreground_colours = {
+    "BLACK": "\x1b[30m",
+    "RED": "\x1b[31m",
+    "GREEN": "\x1b[32m",
+    "YELLOW": "\x1b[33m",
+    "BLUE": "\x1b[34m",
+    "MAGENTA": "\x1b[35m",
+    "CYAN": "\x1b[36m",
+    "WHITE": "\x1b[37m",
+    "RESET": "\x1b[39m"
+}
+
+background_colours = {
+    "BLACK": "\x1b[40m",
+    "RED": "\x1b[41m",
+    "GREEN": "\x1b[42m",
+    "YELLOW": "\x1b[43m",
+    "BLUE": "\x1b[44m",
+    "MAGENTA": "\x1b[45m",
+    "CYAN": "\x1b[46m",
+    "WHITE": "\x1b[47m",
+    "RESET": "\x1b[49m"
+}
+
+
 class Screen:
     """
             Screen class basically initialises the screen which will modify
@@ -34,39 +59,15 @@ class Screen:
         # but put into a dictionary just so things are easier when printing
         # out forground colours
 
-        self.foreground_colours = {
-            "BLACK": "\x1b[30m",
-            "RED": "\x1b[31m",
-            "GREEN": "\x1b[32m",
-            "YELLOW": "\x1b[33m",
-            "BLUE": "\x1b[34m",
-            "MAGENTA": "\x1b[35m",
-            "CYAN": "\x1b[36m",
-            "WHITE": "\x1b[37m",
-            "RESET": "\x1b[39m"
-        }
-
-        self.background_colours = {
-            "BLACK": "\x1b[40m",
-            "RED": "\x1b[41m",
-            "GREEN": "\x1b[42m",
-            "YELLOW": "\x1b[43m",
-            "BLUE": "\x1b[44m",
-            "MAGENTA": "\x1b[45m",
-            "CYAN": "\x1b[46m",
-            "WHITE": "\x1b[47m",
-            "RESET": "\x1b[49m"
-        }
-
     def foreground_colour(self, colour, flush=True):
         """ Change foreground colour (text colour) """
 
-        self.write(self.foreground_colours[colour], flush=flush)
+        self.write(foreground_colours[colour], flush=flush)
 
     def background_colour(self, colour, flush=True):
         """ Change background colour """
 
-        self.write(self.background_colours[colour], flush=flush)
+        self.write(background_colours[colour], flush=flush)
 
     def flush(self):
         """ Flushes stdout """
