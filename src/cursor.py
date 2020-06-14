@@ -53,6 +53,10 @@ class Cursor:
         self.saved_positions[name]["x"] = position[0]
         self.saved_positions[name]["y"] = position[1]
 
+    def delete_position(self, name):
+        if name in self.saved_positions:
+            del self.saved_positions[name]
+
     def load_position(self, name):
         """ Moves the cursor to the cursor position """
 
